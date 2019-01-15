@@ -24,7 +24,7 @@ def dynamic_data_entry(name, timecode, card_number):
     c.execute('''INSERT INTO EmployeeIndex 
     (Name, 
     TimestationCode, 
-    card_number) VALUES (?,?)''', (name, timecode,card_number))
+    card_number) VALUES (?,?,?)''', (name, timecode,card_number))
     conn.commit()
     c.close()
 

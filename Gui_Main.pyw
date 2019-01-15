@@ -200,6 +200,23 @@ class NewUserGui:
         self.name.grid(row=0, column=1, sticky='ns')
         self.name_label.grid(row=0, column=0, sticky='ns')
 
+        # row 4 instruction of Card Number to be save in database  #########################################################
+        self.frame4 = tk.Frame(self.new_user)
+        self.frame4.grid(row=3, column=0, sticky='w')
+
+        self.card_number_label = tk.Label(self.frame4,
+                                   text="Card Number",
+                                   bg='#00012f',
+                                   fg='white',
+                                   font="none 10 bold",
+                                   width=self.label_width)
+        self.number_card = ttk.Entry(self.frame4,
+                              font='none 14 bold',
+                              width=self.entry_width)
+
+        self.number_card.grid(row=0, column=1, sticky='ns')
+        self.card_number_label.grid(row=0, column=0, sticky='ns')
+
         # row 4  save button  #######################################################################################
         self.frame4 = tk.Frame(self.new_user)
 
@@ -212,12 +229,14 @@ class NewUserGui:
     def click(self):
         code = self.entry1.get()
         user_name = self.name.get()
+        card_number = self.number_card.get()
 
-        print("{}   {}".format(user_name, code))
+        print("{}   {}   {}".format(user_name, code, card_number))
 
-        employeeindex.dynamic_data_entry(user_name, code)
+        employeeindex.dynamic_data_entry(user_name, code, card_number)
         self.entry1.delete(0, tk.END)
         self.name.delete(0, tk.END)
+        self.number_card.delete(0, tk.END)
 
 
 class GuiNewTool:
